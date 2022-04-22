@@ -9,6 +9,8 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
+    volumes:
+    - myapp:/data/db 
   mongo-express:
     image: mongo-express
     restart: always
@@ -18,9 +20,8 @@ services:
       ME_CONFIG_MONGODB_ADMINUSERNAME: root
       ME_CONFIG_MONGODB_ADMINPASSWORD: example
       ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27017/ 
-    volumes:
-    - myapp: home/db      
+         
 volumes:
    myapp:
-   external: true    
+       
   
